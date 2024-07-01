@@ -1,0 +1,100 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\dio.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\dio.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\keypad.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\keypad.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\lcd.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\lcd.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\main.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\main.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\SystickTimer.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\SystickTimer.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Write_Time.c" -xcl_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.xcl" -macro_file "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Write_Time.c" -o "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.tmp"
+  rspfile_name = D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.xcl.rsp
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\dio.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\keypad.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\lcd.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\main.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\SystickTimer.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.pbi : INDEXER D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.xcl |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Write_Time.c
+  flags = "-out=D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.pbi" -f "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.xcl"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbw : MAKEBROWSE D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbd
+  flags = "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbd" -output "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbw"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part0.pbi : PDBLINK D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.pbi |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.pbi
+  flags = -M "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part0.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\dio.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\keypad.pbi"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part1.pbi : PDBLINK D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.pbi |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.pbi
+  flags = -M "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part1.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\lcd.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\main.pbi"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part2.pbi : PDBLINK D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.pbi |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.pbi
+  flags = -M "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part2.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\SystickTimer.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Write_Time.pbi"
+
+build D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbd : PDBLINK D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part0.pbi |  $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part1.pbi $
+D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part2.pbi
+  flags = -M "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project.pbd" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part0.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part1.pbi" "D$:\ASU\Microcontrollers$ (intro$ to$ embedded)\Labs$ and$ projects\Embedded$ project\Debug\BrowseInfo\Emb_Project_part2.pbi"
+
